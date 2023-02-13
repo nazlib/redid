@@ -8,9 +8,16 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
-    <None Remove="Views\Product\" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Product\" />
+    <None Remove="Views\Products\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Products\" />
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Images\" />
   </ItemGroup>
 </Project>
