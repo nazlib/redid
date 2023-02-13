@@ -1,10 +1,13 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using RedisExchangeAPI.Web.Services;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSingleton<RedisService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-
+var redisService = new RedisService(builder.Configuration);
+redisService.Connect();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
